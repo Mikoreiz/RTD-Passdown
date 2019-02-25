@@ -16,6 +16,7 @@ app.listen(3000, function() {
 app.post('/bus', function(request, response){
 	var bus = new Bus();
 	bus.busNumber = request.body.busNumber;
+	bus.type = request.body.type;
 	bus.date = request.body.date;
 	bus.noPart = request.body.noPart;
 	bus.reason = request.body.reason;
