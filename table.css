@@ -4,14 +4,22 @@ body {
 h1 {
 	color:#800000;
 }
-h4 {
+#hed4 {
 	padding-left: 50px;
+}
+h4 {
+	padding-bottom: 40px;
+	padding-top: 20px;
 }
 table{
 	width:1000px;
 }
 #table-heading {
 	background-color: #800000;
+	color:white;
+}
+#passdownTable {
+	background-color:#6b6b6b;
 	color:white;
 }
 tr{

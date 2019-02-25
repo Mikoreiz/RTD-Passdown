@@ -6,25 +6,26 @@
 	</head>
 	<body>
 		<h1>RTD PASSDOWN</h1>
-		<div class="row">
+		<div class="row justify-content-center">
 			<h4>BUSES ON HOLD: 0</h3>
-			<h4>TOTAL SMA RUNNING: 0</h3>
-			<h4>TOTAL BRT RUNNING: 0</h3>
-			<h4>EXPRESS: 0</th>
-			<h4>NON-REV: 0</h3>
+			<h4 id="hed4">TOTAL SMA RUNNING: 0</h3>
+			<h4 id="hed4">TOTAL BRT RUNNING: 0</h3>
+			<h4 id="hed4">EXPRESS: 0</th>
+			<h4 id="hed4">NON-REV: 0</h3>
 		</div>
-		<table class="table table-hover table-bordered">
+		<div class="row justify-content-center">
+		<table class="table table-hover text-monospace" style="width:1400px;">
 			<thead>
 				<tr id="table-heading">
-					<th scope="col">Bus #</th>
-					<th scope="col">Type</th>
-					<th scope="col">Date Identified</th>
-					<th scope="col">No Part</th>
-					<th scope="col">Reason Down</th>
-					<th scope="col">Description</th>
-					<th scope="col">Duration</th>
+					<th>BUS #</th>
+					<th>TYPE</th>
+					<th>DATE IDENTIFIED</th>
+					<th>NO PART</th>
+					<th>REASON DOWN</th>
+					<th>DESCRIPTION</th>
+					<th>DURATION</th>
 				</tr>
-				<tr>
+				<tr id="passdownTable">
 					<td>325761</td>
 					<td>SMA</td>
 					<td>02/23/2019</td>
@@ -33,7 +34,7 @@
 					<td>Tire is flat</td>
 					<td>2</td>
 				</tr>
-				<tr>
+				<tr id="passdownTable">
 					<td>325761</td>
 					<td>SMA</td>
 					<td>02/23/2019</td>
@@ -42,34 +43,7 @@
 					<td>Tire is flat</td>
 					<td>2</td>
 				</tr>
-				<tr>
-					<td>325761</td>
-					<td>SMA</td>
-					<td>02/23/2019</td>
-					<td>True</td>
-					<td>Flat tire</td>
-					<td>Tire is flat</td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td>325761</td>
-					<td>SMA</td>
-					<td>02/23/2019</td>
-					<td>True</td>
-					<td>Flat tire</td>
-					<td>Tire is flat</td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td>325761</td>
-					<td>SMA</td>
-					<td>02/23/2019</td>
-					<td>True</td>
-					<td>Flat tire</td>
-					<td>Tire is flat</td>
-					<td>2</td>
-				</tr>
-				<tr>
+				<tr id="passdownTable">
 					<td>325761</td>
 					<td>SMA</td>
 					<td>02/23/2019</td>
@@ -80,9 +54,10 @@
 				</tr>
 			<thead>
 		</table>
+		</div>
 		<form>
-			<div class="form-row">
-			    <div class="col-md-2">
+			<div class="row justify-content-center">
+			    <div class="col-md-1">
       				<input type="text" class="form-control" placeholder="Bus #">
    				</div>
     			<div class="form-group col-md-2">
@@ -96,9 +71,7 @@
     			</div>
     			<div class="col-md-2">
       				<input type="text" class="form-control" placeholder="Date 12/20/95">
-   				</div>
-   			</div>
-   			<div class="form-row">
+   				</div>   			
     			<div class="form-group col-md-2">
       			<select id="inputNoPart" class="form-control">
         				<option selected>No Part...</option>
@@ -106,17 +79,16 @@
         				<option>False</option>
       				</select>
     			</div>
-    			<div class="col-md-2">
-      				<input type="text" class="form-control" placeholder="Reason Down">
+    			<div class="col-md-1">
+      				<input type="text" class="form-control" placeholder="Reason">
       			</div>
-    			<div class="col-md-2">
-      				<input type="text" class="form-control" placeholder="Description">
+    			<div class="col-md-1">
+      				<input type="text" class="form-control" placeholder="Desc">
    				</div>
-			</div>
-				<div class="form-group row">
-    				<div class="col-sm-10">
-						<button class="btn btn-dark btn-lg" type="submit">Submit</button>
-					</div>
+   				<div class="col-md-1">
+				<button type="button" class="btn btn-dark">Add</button>
 				</div>
+			</div>
+		<form>
 	</body>
 </html>
