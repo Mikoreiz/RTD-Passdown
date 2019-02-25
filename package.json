@@ -1,0 +1,16 @@
+{
+  "name": "rtd-passdown",
+  "version": "1.0.0",
+  "description": "Running status of buses",
+  "main": "index.js",
+  "scripts": {
+    "test": "rdtest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Mikoreiz/RTD-Passdown"
+  },
+  "author": "Mikhael Oreiro",
+  "license": "ISC"
+  "homepage": "https://github.com/Mikoreiz/RTD-Passdown"
+}
