@@ -2,17 +2,20 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="/Users/Macbook/Documents/GitHub/RTD-Passdown/table.css">
 	</head>
 	<body>
 		<h1>RTD PASSDOWN</h1>
-				<h3>BUSES ON HOLD:</h3>
-				<h3>TOTAL SMA RUNNING:</h3>
-				<h3>TOTAL BRT RUNNING:</h3>
-				<h3>EXPRESS:</th>
-				<h3>NON-REV:</h3>
-		<table class="table table-bordered table-hover">
-			<thead class="thead-dark">
-				<tr>
+		<div class="row">
+			<h4>BUSES ON HOLD: 0</h3>
+			<h4>TOTAL SMA RUNNING: 0</h3>
+			<h4>TOTAL BRT RUNNING: 0</h3>
+			<h4>EXPRESS: 0</th>
+			<h4>NON-REV: 0</h3>
+		</div>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr id="table-heading">
 					<th scope="col">Bus #</th>
 					<th scope="col">Type</th>
 					<th scope="col">Date Identified</th>
@@ -112,7 +115,7 @@
 			</div>
 				<div class="form-group row">
     				<div class="col-sm-10">
-						<button class="btn btn-primary" type="submit">Submit</button>
+						<button class="btn btn-dark btn-lg" type="submit">Submit</button>
 					</div>
 				</div>
 	</body>
