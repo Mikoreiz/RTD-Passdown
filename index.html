@@ -10,25 +10,110 @@
 				<h3>TOTAL BRT RUNNING:</h3>
 				<h3>EXPRESS:</th>
 				<h3>NON-REV:</h3>
-		<table>
-			<tr>
-				<th>Bus #</th>
-				<th>Type</th>
-				<th>Date Identified</th>
-				<th>No Part</th>
-				<th>Reason Down</th>
-				<th>Description</th>
-				<th>Days out of Service</th>
-			</tr>
+		<table class="table table-bordered table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Bus #</th>
+					<th scope="col">Type</th>
+					<th scope="col">Date Identified</th>
+					<th scope="col">No Part</th>
+					<th scope="col">Reason Down</th>
+					<th scope="col">Description</th>
+					<th scope="col">Duration</th>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>325761</td>
+					<td>SMA</td>
+					<td>02/23/2019</td>
+					<td>True</td>
+					<td>Flat tire</td>
+					<td>Tire is flat</td>
+					<td>2</td>
+				</tr>
+			<thead>
 		</table>
 		<form>
-			Bus #:<input type="text">
-			Type:<input type="text">
-			Date Identified:<input type="text">
-			No Part:<input type="text">
-			Reason Down:<input type="text">
-			Description:<input type="text">
-			<input type="submit" value="Submit">
-		</form>
+			<div class="form-row">
+			    <div class="col-md-2">
+      				<input type="text" class="form-control" placeholder="Bus #">
+   				</div>
+    			<div class="form-group col-md-2">
+      				<select id="inputType" class="form-control">
+        				<option selected>Choose Bus Type...</option>
+        				<option>SMA</option>
+        				<option>BRT</option>
+        				<option>NON-REV</option>
+        				<option>EXPRESS</option>
+      				</select>
+    			</div>
+    			<div class="col-md-2">
+      				<input type="text" class="form-control" placeholder="Date 12/20/95">
+   				</div>
+   			</div>
+   			<div class="form-row">
+    			<div class="form-group col-md-2">
+      			<select id="inputNoPart" class="form-control">
+        				<option selected>No Part...</option>
+        				<option>True</option>
+        				<option>False</option>
+      				</select>
+    			</div>
+    			<div class="col-md-2">
+      				<input type="text" class="form-control" placeholder="Reason Down">
+      			</div>
+    			<div class="col-md-2">
+      				<input type="text" class="form-control" placeholder="Description">
+   				</div>
+			</div>
+				<div class="form-group row">
+    				<div class="col-sm-10">
+						<button class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</div>
 	</body>
 </html>
