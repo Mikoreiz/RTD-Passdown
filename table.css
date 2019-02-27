@@ -22,7 +22,9 @@ table{
 	background-color:#6b6b6b;
 	color:white;
 }
-tr{
-	margin:20px;
+tr { 
+	box-shadow: -15px 0 15px -15px inset;
+	padding:5px;
 }
+
 
