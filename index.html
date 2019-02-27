@@ -2,30 +2,34 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="/Users/Macbook/Documents/GitHub/RTD-Passdown/table.css">
+		<link rel="stylesheet" href="/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css">
+		<script type="text/javascript" src="/Users/Macbook/Documents/GitHub/RTD-Passdown/putAndGet.js"></script>
 	</head>
 	<body>
-		<h1>RTD PASSDOWN</h1>
+		<h1 class="row justify-content-center" style="color:#800000;">RTD PASSDOWN</h1>
 		<div class="row justify-content-center">
-			<h4>BUSES ON HOLD: 0</h3>
-			<h4 id="hed4">TOTAL SMA RUNNING: 0</h3>
-			<h4 id="hed4">TOTAL BRT RUNNING: 0</h3>
-			<h4 id="hed4">EXPRESS: 0</th>
-			<h4 id="hed4">NON-REV: 0</h3>
-		</div>
-		<div class="row justify-content-center">
-		<table class="table table-hover text-monospace" style="width:1400px;">
+			<table>
+				<tr>
+					<td><h4>BUSES ON HOLD: 0</h4></td>
+					<td style="padding:18px;"><h4>TOTAL SMA RUNNING: 0</h4></td>
+					<td style="padding:18px;"><h4>TOTAL BRT RUNNING: 0</h4></td>
+					<td style="padding:18px;"><h4>EXPRESS: 0</h4></td>
+					<td style="padding:18px;"><h4>NON-REV: 0</h4></td>
+				</tr>
+			</table>
+
+		<table class="table table-dark text-monospace" style="width:95%;">
 			<thead>
-				<tr id="table-heading">
+				<tr style="	background-color:#800000; color:white;">
 					<th>BUS #</th>
 					<th>TYPE</th>
 					<th>DATE IDENTIFIED</th>
 					<th>NO PART</th>
 					<th>REASON DOWN</th>
 					<th>DESCRIPTION</th>
-					<th>DURATION</th>
-					<th>EDIT/REMOVE</th>
+					<th>EDIT/DEL</th>
 				</tr>
+			</thead>
 				<tr id="passdownTable">
 					<td>325761</td>
 					<td>SMA</td>
@@ -33,45 +37,31 @@
 					<td>True</td>
 					<td>Flat tire</td>
 					<td>Tire is flat</td>
-					<td>2</td>
 					<td>
-						<button type="button" class="btn btn-dark btn-sm">+</button>
-						<button type="button" class="btn btn-dark btn-sm">X</button>
+						<button type="button" class="btn btn-light btn-sm">Edit</button>
+						<button type="button" class="btn btn-light btn-sm">Del</button>
 					</td>
 				</tr>
-				<tr id="passdownTable">
-					<td>325761</td>
-					<td>SMA</td>
-					<td>02/23/2019</td>
-					<td>True</td>
-					<td>Flat tire</td>
-					<td>Tire is flat</td>
-					<td>2</td>
+				<!--tr id="passdownTable">
+					<td id="outputNum"></td>
+					<td id="outputType"></td>
+					<td id="outputDate"></td>
+					<td id="outputNoPart"></td>
+					<td id="outputReason"></td>
+					<td id="outputDesc"></td>
 					<td>
-						<button type="button" class="btn btn-dark btn-sm">+</button>
-						<button type="button" class="btn btn-dark btn-sm">X</button>
+						<button id="edit" type="button" class="btn btn-light btn-sm">Edit</button>
+						<button id="delete" "type="button" class="btn btn-light btn-sm">Del</button>
 					</td>
-				</tr>
-				<tr id="passdownTable">
-					<td>325761</td>
-					<td>SMA</td>
-					<td>02/23/2019</td>
-					<td>True</td>
-					<td>Flat tire</td>
-					<td>Tire is flat</td>
-					<td>2</td>
-					<td>
-						<button type="button" class="btn btn-dark btn-sm">+</button>
-						<button type="button" class="btn btn-dark btn-sm">X</button>
-					</td>
-				</tr>
+				</t-->
+
 			<thead>
 		</table>
 		</div>
 		<form>
 			<div class="row justify-content-center">
 			    <div class="col-md-1">
-      				<input type="text" class="form-control" placeholder="Bus #">
+      				<input id="inputBus" type="text" class="form-control" placeholder="Bus #">
    				</div>
     			<div class="form-group col-md-2">
       				<select id="inputType" class="form-control">
@@ -83,7 +73,7 @@
       				</select>
     			</div>
     			<div class="col-md-2">
-      				<input type="text" class="form-control" placeholder="Date 12/20/95">
+      				<input id="inputDate" type="text" class="form-control" placeholder="Date 12/20/95">
    				</div>   			
     			<div class="form-group col-md-2">
       			<select id="inputNoPart" class="form-control">
@@ -93,15 +83,14 @@
       				</select>
     			</div>
     			<div class="col-md-1">
-      				<input type="text" class="form-control" placeholder="Reason">
+      				<input id="inputReason" type="text" class="form-control" placeholder="Reason">
       			</div>
     			<div class="col-md-1">
-      				<input type="text" class="form-control" placeholder="Desc">
+      				<input id="inputDesc"type="text" class="form-control" placeholder="Desc">
    				</div>
    				<div class="col-md-1">
 				<button type="button" class="btn btn-dark">Add</button>
 				</div>
-			</div>
 		<form>
 	</body>
 </html>
