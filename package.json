@@ -16,6 +16,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "formidable": "^1.2.1",
     "mongoose": "^5.4.15"
   }
 }
