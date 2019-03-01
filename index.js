@@ -5,14 +5,12 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/rtd-passdown',{useNewUrlParser: true});
 var Schema = mongoose.Schema;
+app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname,'index.html'));
-});
 
 var bus = new Schema({
 	busNumber : Number,
@@ -25,7 +23,7 @@ var bus = new Schema({
 
 var addBus = mongoose.model('holdbus', bus);
 
-app.post('/submitBus', function(request,response){
+app.post('/submit', function(request,response){
 	new addBus({
 		busNumber : request.body.inputBus,
 		type : request.body.inputType,
@@ -39,19 +37,22 @@ app.post('/submitBus', function(request,response){
         } else {
             console.log('your form has been saved');
         }
-        response.sendFile(path.join(__dirname,'index.html'));
+        response.redirect('/hold');
     });
 });
 
-app.get('/test', function(request, response){
+app.get('/hold', function(request, response){
 	addBus.find({}, function(err, addBus){
 			if (err){
 			response.status(500).send({error:"Could not fetch data"});
 		} else {
-			response.send(addBus);
+			response.render('index', {
+				addBus : addBus
+			});
 		}
 	});
 });
+
 
 app.listen(3000, function() {
 console.log("Passdown running on port 3000...");
