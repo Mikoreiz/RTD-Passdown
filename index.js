@@ -43,6 +43,16 @@ app.post('/submitBus', function(request,response){
     });
 });
 
+app.get('/test', function(request, response){
+	addBus.find({}, function(err, addBus){
+			if (err){
+			response.status(500).send({error:"Could not fetch data"});
+		} else {
+			response.send(addBus);
+		}
+	});
+});
+
 app.listen(3000, function() {
 console.log("Passdown running on port 3000...");
 });
