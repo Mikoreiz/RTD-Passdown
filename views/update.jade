@@ -12,9 +12,11 @@ html
         input(type='hidden', name='id', value='#{editBus._id}')
         .row.justify-content-center
           .col-md-1
+            label Number
             input.form-control(type='text', name='upBus', value='#{editBus.busNumber}') 
           |     &#x9;&#x9;&#x9;
           .form-group.col-md-1
+            label Type
             select.form-control(type='text', name='upType')
               option(selected='') #{editBus.type}
               |         &#x9;&#x9;&#x9;&#x9;
@@ -27,10 +29,12 @@ html
               option EXPRESS
           |     &#x9;&#x9;&#x9;
           .col-md-2
+            label Date
             input.form-control(type='text', name='upDate', value='#{editBus.date}')
           |    &#x9;&#x9;&#x9;
           |     &#x9;&#x9;&#x9;
           .form-group.col-md-1
+            label No Part
             select.form-control(type='text', name='upNoPart')
               option(selected='') #{editBus.noPart}
               |         &#x9;&#x9;&#x9;&#x9;
@@ -39,14 +43,18 @@ html
               option False
           |     &#x9;&#x9;&#x9;
           .col-md-2
+            label Reason
             input.form-control(type='text', name='upReason', value='#{editBus.reason}')
           |     &#x9;&#x9;&#x9;
           .col-md-2
+            label Description
             input.form-control(type='text', name='upDesc', value='#{editBus.description}')
           |    &#x9;&#x9;&#x9;&#x9;
-          .col-md-1
-            button.btn.btn-dark(type='submit') Update
-            | &#x9;&#x9;
+          row.justify-content-center
+            .col-md-1
+              label Update
+              button.btn.btn-dark(type='submit') +
+              | &#x9;&#x9;
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
           
