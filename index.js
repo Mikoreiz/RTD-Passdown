@@ -66,7 +66,7 @@ app.get('/toEditPage/:_id', function(request, response){
 });
 
 app.get('/delete/:_id', function(request,response){
-	addBus.findOneAndDelete(request.body.id, function(err){
+	addBus.deleteOne({_id : request.params._id}, function(err){
 			if (err) {
 				console.log('Could not remove');
 			} else {
