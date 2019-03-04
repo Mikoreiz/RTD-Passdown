@@ -43,26 +43,9 @@ html
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             th EDIT/DEL
         | &#x9;&#x9;&#x9;&#x9;
-        tr#passdownTable
-          td 325761
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td SMA
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td 02/23/2019
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td True
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td Flat tire
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td Tire is flat
-          | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td
-            button.btn.btn-light.btn-sm(type='button') Edit
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-            button.btn.btn-light.btn-sm(type='button') Del
-        | &#x9;&#x9;&#x9;
         -for bus in addBus
           tr#passdownTable
+            input(type='hidden', name='id', value='bus._id' ) 
             td #{bus.busNumber}
             td #{bus.type}
             td #{bus.date}
@@ -70,9 +53,12 @@ html
             td #{bus.reason}
             td #{bus.description}
             td
-              button.btn.btn-light.btn-sm(type='button') Edit
-              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-              button.btn.btn-light.btn-sm(type='button') Del
+              a(href='/toEditPage/#{bus._id}', action='/editPage')
+                button.btn.btn-light.btn-sm(type='button') Edit
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='/delete/#{bus._id}', action='/delete')
+                button.btn.btn-light.btn-sm(type='button') Del
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
         thead
     | &#x9;&#x9;
     form(method='POST', action='/submit')

@@ -10,8 +10,6 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-
-
 var bus = new Schema({
 	busNumber : Number,
 	type: String,
@@ -52,6 +50,33 @@ app.get('/hold', function(request, response){
 		}
 	});
 });
+
+app.get('/toEditPage/:_id', function(request, response){
+	addBus.findOne(_id = request.body.id, function(err){
+		if (err) {
+			console.log('Could not find');
+		} else {
+				response.render('update', {
+					addBus : addBus
+				});
+				console.log('Moved to edit page');
+		}
+	});
+	
+});
+
+app.get('/delete/:_id', function(request,response){
+	addBus.findOneAndDelete(request.body.id, function(err){
+			if (err) {
+				console.log('Could not remove');
+			} else {
+				console.log('Removed');
+				response.redirect('/hold');
+			}
+	});
+
+});
+
 
 
 app.listen(3000, function() {
