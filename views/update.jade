@@ -8,48 +8,47 @@ html
   body
     h1.row.justify-content-center(style='color:#800000;') EDIT INFORMATION
     | &#x9;&#x9;
-  form(method='PUT', action='/null')
-      .row.justify-content-center
-        .col-md-1
-          input.form-control(type='text', name='upBus', placeholder='#{addBus.busNumber}')
-        |     &#x9;&#x9;&#x9;
-        .form-group.col-md-2
-          select.form-control(type='text', name='uptType')
-            option(selected='#{addBus.type}') 
-            |         &#x9;&#x9;&#x9;&#x9;
-            option SMA
-            |         &#x9;&#x9;&#x9;&#x9;
-            option BRT
-            |         &#x9;&#x9;&#x9;&#x9;
-            option NON-REV
-            |         &#x9;&#x9;&#x9;&#x9;
-            option EXPRESS
-        |     &#x9;&#x9;&#x9;
-        .col-md-2
-          input.form-control(type='text', name='upDate', placeholder='#{addBus.date}')
-        |    &#x9;&#x9;&#x9;
-        |     &#x9;&#x9;&#x9;
-        .form-group.col-md-2
-          select.form-control(type='text', name='upNoPart')
-            option(selected='#{addBus.noPart}') 
-            |         &#x9;&#x9;&#x9;&#x9;
-            option True
-            |         &#x9;&#x9;&#x9;&#x9;
-            option False
-        |     &#x9;&#x9;&#x9;
-        .col-md-1
-          input.form-control(type='text', name='upReason', placeholder='#{addBus.reason}')
-        |     &#x9;&#x9;&#x9;
-        .col-md-1
-          input.form-control(type='text', name='upDesc', placeholder='#{addBus.description}')
-        |    &#x9;&#x9;&#x9;&#x9;
-  form(method='PUT', action='/update')
-    .row.justify-content-center
-        .col-md-1
-          button.btn.btn-dark(type='submit') Update
-          | &#x9;&#x9;
-        form
-          script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
+    form(method='POST', action='/updateBus/#{editBus._id}')
+        input(type='hidden', name='id', value='#{editBus._id}')
+        .row.justify-content-center
+          .col-md-1
+            input.form-control(type='text', name='upBus', value='#{editBus.busNumber}') 
+          |     &#x9;&#x9;&#x9;
+          .form-group.col-md-1
+            select.form-control(type='text', name='upType')
+              option(selected='') #{editBus.type}
+              |         &#x9;&#x9;&#x9;&#x9;
+              option SMA
+              |         &#x9;&#x9;&#x9;&#x9;
+              option BRT
+              |         &#x9;&#x9;&#x9;&#x9;
+              option NON-REV
+              |         &#x9;&#x9;&#x9;&#x9;
+              option EXPRESS
+          |     &#x9;&#x9;&#x9;
+          .col-md-2
+            input.form-control(type='text', name='upDate', value='#{editBus.date}')
+          |    &#x9;&#x9;&#x9;
+          |     &#x9;&#x9;&#x9;
+          .form-group.col-md-1
+            select.form-control(type='text', name='upNoPart')
+              option(selected='') #{editBus.noPart}
+              |         &#x9;&#x9;&#x9;&#x9;
+              option True
+              |         &#x9;&#x9;&#x9;&#x9;
+              option False
+          |     &#x9;&#x9;&#x9;
+          .col-md-2
+            input.form-control(type='text', name='upReason', value='#{editBus.reason}')
+          |     &#x9;&#x9;&#x9;
+          .col-md-2
+            input.form-control(type='text', name='upDesc', value='#{editBus.description}')
+          |    &#x9;&#x9;&#x9;&#x9;
+          .col-md-1
+            button.btn.btn-dark(type='submit') Update
+            | &#x9;&#x9;
+    form
+      script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
           
           
           
