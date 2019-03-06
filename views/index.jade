@@ -1,3 +1,20 @@
+- var smaCount = 40
+- var brtCount = 30
+- var expCount = 0
+- var nonCount = 0
+- var sma = "SMA"
+- var brt = "BRT"
+- var exp = "EXPRESS"
+- var non = "NON-REV"
+- for bus in addBus
+    if bus.type == sma
+      - smaCount--
+    if bus.type == brt
+      - brtCount--
+    if bus.type == exp
+      - expCount++
+    if bus.type == non
+      - nonCount++
 doctype html
 html
   head
@@ -12,19 +29,19 @@ html
       table
         tr
           td
-            h4 BUSES ON HOLD: 0
+            h4 TOTAL BUSES ON HOLD: #{addBus.length}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td(style='padding:18px;')
-            h4 TOTAL SMA RUNNING: 0
+          td(style='padding:16px;')
+            h4 SMA RUNNING: #{smaCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td(style='padding:18px;')
-            h4 TOTAL BRT RUNNING: 0
+          td(style='padding:16px;')
+            h4 BRT RUNNING: #{brtCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td(style='padding:18px;')
-            h4 EXPRESS: 0
+          td(style='padding:16px;')
+            h4 EXPRESS ON HOLD: #{expCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
-          td(style='padding:18px;')
-            h4 NON-REV: 0
+          td(style='padding:16px;')
+            h4 NON-REV ON HOLD: #{nonCount}
       | &#x9;&#x9;
       table.table.table-dark.text-monospace(style='width:95%;')
         thead

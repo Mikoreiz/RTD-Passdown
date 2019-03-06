@@ -15,7 +15,7 @@ html
             label Number
             input.form-control(type='text', name='upBus', value='#{editBus.busNumber}') 
           |     &#x9;&#x9;&#x9;
-          .form-group.col-md-1
+          .form-group.col-md-2
             label Type
             select.form-control(type='text', name='upType')
               option(selected='') #{editBus.type}
@@ -33,7 +33,7 @@ html
             input.form-control(type='text', name='upDate', value='#{editBus.date}')
           |    &#x9;&#x9;&#x9;
           |     &#x9;&#x9;&#x9;
-          .form-group.col-md-1
+          .form-group.col-md-2
             label No Part
             select.form-control(type='text', name='upNoPart')
               option(selected='') #{editBus.noPart}
@@ -50,11 +50,10 @@ html
             label Description
             input.form-control(type='text', name='upDesc', value='#{editBus.description}')
           |    &#x9;&#x9;&#x9;&#x9;
-          row.justify-content-center
-            .col-md-1
-              label Update
-              button.btn.btn-dark(type='submit') +
-              | &#x9;&#x9;
+        .row.justify-content-center
+          .col-md-1
+            button.btn.btn-dark(type='submit') Update
+          | &#x9;&#x9;
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
           
