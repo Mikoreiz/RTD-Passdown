@@ -52,6 +52,18 @@ app.get('/', function(request, response){
 	});
 });
 
+app.get('/screen', function(request, response){
+	addBus.find({}, function(err, addBus){
+		if (err){
+		response.status(500).send({error:"Could not fetch data"});
+		} else {
+			response.render('screen', {
+				addBus : addBus
+			});
+		}
+	});
+});
+
 app.get('/toEditPage/:_id', function(request, response){
 	addBus.findById(request.params._id, function(err, obj){
 		if (err) {

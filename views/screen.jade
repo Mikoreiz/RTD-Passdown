@@ -1,0 +1,70 @@
+- var smaCount = 40
+- var brtCount = 30
+- var expCount = 0
+- var nonCount = 0
+- var sma = "SMA"
+- var brt = "BRT"
+- var exp = "EXPRESS"
+- var non = "NON-REV"
+- for bus in addBus
+    if bus.type == sma
+      - smaCount--
+    if bus.type == brt
+      - brtCount--
+    if bus.type == exp
+      - expCount++
+    if bus.type == non
+      - nonCount++
+doctype html
+html
+  head
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    | &#x9;&#x9;
+    link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
+  | &#x9;
+  body
+    h1.row.justify-content-center(style='color:#800000;') RTD PASSDOWN
+    | &#x9;&#x9;
+    .row.justify-content-center
+      table
+        tr
+          td
+            h4 TOTAL BUSES ON HOLD: #{addBus.length}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          td(style='padding:16px;')
+            h4 SMA RUNNING: #{smaCount}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          td(style='padding:16px;')
+            h4 BRT RUNNING: #{brtCount}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          td(style='padding:16px;')
+            h4 EXPRESS ON HOLD: #{expCount}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          td(style='padding:16px;')
+            h4 NON-REV ON HOLD: #{nonCount}
+      | &#x9;&#x9;
+      table.table.table-dark.text-monospace(style='width:95%;')
+        thead
+          tr(style='	background-color:#800000; color:white;')
+            th BUS #
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th TYPE
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th DATE IDENTIFIED
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th NO PART
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th REASON DOWN
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th DESCRIPTION
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;&#x9;
+        -for bus in addBus
+          tr#passdownTable
+            input(type='hidden', name='id', value='bus._id' ) 
+            td #{bus.busNumber}
+            td #{bus.type}
+            td #{bus.date}
+            td #{bus.noPart}
+            td #{bus.reason}
+            td #{bus.description}
