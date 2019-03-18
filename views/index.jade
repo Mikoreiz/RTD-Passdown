@@ -15,10 +15,12 @@
       - expCount++
     if bus.type == non
       - nonCount++
+- var date = new Date().getTime()
+
 doctype html
 html
   head
-    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     | &#x9;&#x9;
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
   | &#x9;
@@ -45,7 +47,7 @@ html
       | &#x9;&#x9;
       table.table.table-dark.text-monospace(style='width:95%;')
         thead
-          tr(style='	background-color:#800000; color:white;')
+          tr(style='background-color:#800000; color:white;')
             th BUS #
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             th TYPE
@@ -58,23 +60,27 @@ html
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             th DESCRIPTION
             | &#x9;&#x9;&#x9;&#x9;&#x9;
-            th EDIT/DEL
-        | &#x9;&#x9;&#x9;&#x9;
+            th DAYS OUT
+            | &#x9;&#x9;&#x9;&#x9;
+            th EDIT/FIXED
+            | &#x9;&#x9;&#x9;&#x9;
         -for bus in addBus
-          tr#passdownTable
+          tr.m-1#passdownTable
             input(type='hidden', name='id', value='bus._id' ) 
-            td #{bus.busNumber}
-            td #{bus.type}
-            td #{bus.date}
-            td #{bus.noPart}
-            td #{bus.reason}
-            td #{bus.description}
+            td(name='arcNum') #{bus.busNumber}
+            td(name='arcType') #{bus.type}
+            td(name='arcDate') #{moment(bus.date).format('MMM Do YYYY')}
+            td(name='arcPart') #{bus.noPart}
+            td(name='arcReason') #{bus.reason}
+            td(name='arcDesc') #{bus.description}
+            - busSecs = Math.round((date - bus.date.getTime())/86400000)
+            td(name='arcServ')  #{busSecs} 
             td
               a(href='/toEditPage/#{bus._id}', action='/editPage')
                 button.btn.btn-light.btn-sm(type='button') Edit
                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-              a(href='/delete/#{bus._id}', action='/delete')
-                button.btn.btn-light.btn-sm(type='button') Del
+              a(method='POST', action='/archiveBus')
+                button.btn.btn-light.btn-sm(type='button') Fixed
                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
         thead
     | &#x9;&#x9;
@@ -96,7 +102,7 @@ html
             option EXPRESS
         |     &#x9;&#x9;&#x9;
         .col-md-2
-          input.form-control(type='text', name='inputDate', placeholder='Date 12/20/95')
+          input.form-control(type='date', name='inputDate', placeholder='MM/DD/YY')
         |    &#x9;&#x9;&#x9;
         |     &#x9;&#x9;&#x9;
         .form-group.col-md-2

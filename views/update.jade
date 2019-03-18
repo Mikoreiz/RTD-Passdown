@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     | &#x9;&#x9;
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
   | &#x9;
@@ -30,9 +30,10 @@ html
           |     &#x9;&#x9;&#x9;
           .col-md-2
             label Date
-            input.form-control(type='text', name='upDate', value='#{editBus.date}')
+            - var edDate = moment(editBus.date).format('M/D/YY')
+            input.form-control(type='date', name='upDate', value='#{edDate}')
           |    &#x9;&#x9;&#x9;
-          |     &#x9;&#x9;&#x9;
+          |    &#x9;&#x9;&#x9;
           .form-group.col-md-2
             label No Part
             select.form-control(type='text', name='upNoPart')
@@ -53,6 +54,11 @@ html
         .row.justify-content-center
           .col-md-1
             button.btn.btn-dark(type='submit') Update
+          | &#x9;&#x9;
+     form.mt-3(method='GET', action='/delete/#{editBus._id}')
+        .row.justify-content-center
+          .col-md-1
+            button.btn.btn-danger(type='submit') Delete
           | &#x9;&#x9;
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
