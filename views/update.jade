@@ -6,7 +6,7 @@ html
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
   | &#x9;
   body
-    h1.row.justify-content-center(style='color:#800000;') EDIT INFORMATION
+    h1.row.justify-content-center(style='color:#800000;') UPDATE INFORMATION
     | &#x9;&#x9;
     form(method='POST', action='/updateBus/#{editBus._id}')
         input(type='hidden', name='id', value='#{editBus._id}')
@@ -30,7 +30,7 @@ html
           |     &#x9;&#x9;&#x9;
           .col-md-2
             label Date
-            - var edDate = moment(editBus.date).format('M/D/YY')
+            - var edDate = moment(editBus.date).format('MM/DD/YY')
             input.form-control(type='date', name='upDate', value='#{edDate}')
           |    &#x9;&#x9;&#x9;
           |    &#x9;&#x9;&#x9;
@@ -51,6 +51,16 @@ html
             label Description
             input.form-control(type='text', name='upDesc', value='#{editBus.description}')
           |    &#x9;&#x9;&#x9;&#x9;
+        .row.justify-content-center
+          .col-md-2
+            label Date Fixed
+            input.form-control.mb-3(type='text', name='fixDate', value='MM/DD/YY')
+          .form-group.col-md-2
+            label Fixed
+            select.form-control(type='text', name='fixed')
+              option(selected='') False
+              |         &#x9;&#x9;&#x9;&#x9;
+              option True
         .row.justify-content-center
           .col-md-1
             button.btn.btn-dark(type='submit') Update

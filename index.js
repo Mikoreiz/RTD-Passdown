@@ -12,20 +12,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.locals.moment = require('moment');
 
+//SCHEMA OF BUS
 var bus = new Schema({
 	busNumber   : Number,
 	type        : String,
-	date        : Date,
-	noPart      : String,
-	reason      : String,
+	date        : Date, 
+	noPart      : String, 
+	reason      : String, 
 	description : String,
-	fixed       : String
+	fixed       : {type: String, default: "False"},
+	dateFixed   : {type: Date, default: Date()}
 });
 
 
 var addBus = mongoose.model('holdbus', bus);
-var archBus = mongoose.model('archbus', arch);
 
+//ADDS NEW BUS FROM FORM
 app.post('/submit', function(request,response){
 	new addBus({
 		busNumber   : request.body.inputBus,
@@ -34,10 +36,11 @@ app.post('/submit', function(request,response){
 		noPart      : request.body.inputNoPart,
 		reason      : request.body.inputReason,
 		description : request.body.inputDesc,
-		fixed       : "False"
+		fixed       : "False",
+		fixDate     : "0"
 	}).save(function(err){
         if(err){
-            response.status(500).send({error:"Could not save bus"});
+            response.redirect('/');
         } else {
             console.log('Bus has been saved');
         }
@@ -45,10 +48,12 @@ app.post('/submit', function(request,response){
     });
 });
 
+//RETRIEVES BUS ON HOLD
 app.get('/', function(request, response){
-	addBus.find({}, function(err, addBus){
+	addBus.find({fixed : "False"}, function(err, addBus){
 		if (err){
 		response.status(500).send({error:"Could not fetch data"});
+		
 		} else {
 			response.render('index', {
 				addBus : addBus
@@ -57,6 +62,21 @@ app.get('/', function(request, response){
 	});
 });
 
+//RETIRVES BUS HISTORY OF FIXES
+app.get('/archive', function(request, response){
+	addBus.find({fixed : "True"}, function(err, addBus){
+		if (err){
+		response.status(500).send({error:"Could not fetch data"});
+		
+		} else {
+			response.render('archive', {
+				addBus : addBus
+			});
+		}
+	});
+});
+
+//VIEW OF CURRENT BUSES ON HOLD FOR MECHANICS
 app.get('/screen', function(request, response){
 	addBus.find({}, function(err, addBus){
 		if (err){
@@ -69,6 +89,7 @@ app.get('/screen', function(request, response){
 	});
 });
 
+//MOVES YOU TO UPDATE PAGE
 app.get('/toEditPage/:_id', function(request, response){
 	addBus.findById(request.params._id, function(err, obj){
 		if (err) {
@@ -80,6 +101,7 @@ app.get('/toEditPage/:_id', function(request, response){
 	});
 });
 
+//UPDATES STATUS OF BUS THROUGH FORM
 app.post('/updateBus/:_id', function(request, response){
 	var updatedBus = {
 	    busNumber   : request.body.upBus,
@@ -87,7 +109,9 @@ app.post('/updateBus/:_id', function(request, response){
 		date        : request.body.upDate,
 		noPart      : request.body.upNoPart,
 		reason      : request.body.upReason,
-		description : request.body.upDesc
+		description : request.body.upDesc,
+		fixed       : request.body.fixed,
+		dateFixed   : request.body.fixDate
 	};
 	addBus.findOneAndUpdate({_id : request.params._id}, updatedBus, {upsert:true, new:true}, function(err, doc){
 		if (err) {
@@ -99,6 +123,7 @@ app.post('/updateBus/:_id', function(request, response){
 	});
 });
 
+//DELETES RECORD OF BUS
 app.get('/delete/:_id', function(request,response){
 	addBus.deleteOne({_id : request.params._id}, function(err){
 		if (err) {
