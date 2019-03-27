@@ -18,18 +18,10 @@ var bus = new Schema({
 	date        : Date,
 	noPart      : String,
 	reason      : String,
-	description : String
+	description : String,
+	fixed       : String
 });
 
-var arch = new Schema({
-	busNumber   : Number,
-	type        : String,
-	date        : Date,
-	noPart      : String,
-	reason      : String,
-	description : String,
-	daysOut     : Number
-});
 
 var addBus = mongoose.model('holdbus', bus);
 var archBus = mongoose.model('archbus', arch);
@@ -41,7 +33,8 @@ app.post('/submit', function(request,response){
 		date        : request.body.inputDate,
 		noPart      : request.body.inputNoPart,
 		reason      : request.body.inputReason,
-		description : request.body.inputDesc
+		description : request.body.inputDesc,
+		fixed       : "False"
 	}).save(function(err){
         if(err){
             response.status(500).send({error:"Could not save bus"});
@@ -116,36 +109,6 @@ app.get('/delete/:_id', function(request,response){
 		}
 	});
 
-});
-
-app.post('/archiveBus', function(request, response) {
-	new archBus({
-		busNumber   : request.body.arcNum,
-		type        : request.body.arcType,
-		date        : request.body.arcDate,
-		noPart      : request.body.arcPart,
-		reason      : request.body.arcReason,
-		description : request.body.arcDesc,
-		daysOut     : request.body.arcServ
-	}).save(function(err){
-        if(err){
-            response.status(500).send({error:"Could not archive bus"});
-        } else {
-            console.log('Bus has been archived');
-        }
-        response.redirect('/');
-	});
-});
-
-app.get('/archive', function(request, response){
-	archBus.find({}, function(err, obj){
-		if (err){
-			console.log('Could not find');	 
-		} else {
-			response.render('archive', {archBus : obj});
-			console.log('Fetching history');
-		}
-	});
 });
 
 app.listen(3000, function() {

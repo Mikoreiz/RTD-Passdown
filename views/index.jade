@@ -62,7 +62,7 @@ html
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             th DAYS OUT
             | &#x9;&#x9;&#x9;&#x9;
-            th EDIT/FIXED
+            th UPDATE
             | &#x9;&#x9;&#x9;&#x9;
         -for bus in addBus
           tr.m-1#passdownTable
@@ -77,10 +77,7 @@ html
             td(name='arcServ')  #{busSecs} 
             td
               a(href='/toEditPage/#{bus._id}', action='/editPage')
-                button.btn.btn-light.btn-sm(type='button') Edit
-                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-              a(method='POST', action='/archiveBus')
-                button.btn.btn-light.btn-sm(type='button') Fixed
+                button.btn.btn-light.btn-sm(type='button') Update
                 | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
         thead
     | &#x9;&#x9;
