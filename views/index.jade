@@ -25,7 +25,7 @@ html
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
   | &#x9;
   body
-    h1.row.justify-content-center(style='color:#800000;') RTD PASSDOWN
+    h1.row.justify-content-center(style='color:#800000;') CONTROLLER
     | &#x9;&#x9;
     .row.justify-content-center
       table
@@ -62,7 +62,7 @@ html
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             th DAYS OUT
             | &#x9;&#x9;&#x9;&#x9;
-            th UPDATE
+            th UPDATE / DELETE
             | &#x9;&#x9;&#x9;&#x9;
         -for bus in addBus
           tr.m-1#passdownTable
@@ -76,17 +76,23 @@ html
             - busSecs = Math.round((date - bus.date.getTime())/86400000)
             td(name='arcServ')  #{busSecs} 
             td
-              a(href='/toEditPage/#{bus._id}', action='/editPage')
-                button.btn.btn-light.btn-sm(type='button') Update
-                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .row
+                a.ml-3.mr-3(href='/toEditPage/#{bus._id}', action='/editPage')
+                  button.btn.btn-light.btn-sm(type='button') Update
+                form(method='GET', action='/delete/#{bus._id}')
+                  button.btn.btn-sm.btn-danger(type='submit') Delete
         thead
     | &#x9;&#x9;
     form(method='POST', action='/submit')
+      .row.justify-content-center.mt-3
+        h4 Add A Bus 
       .row.justify-content-center
-        .col-md-1
-          input.form-control(type='text', name='inputBus', placeholder='Bus #')
-        |     &#x9;&#x9;&#x9;
+        .col-md-2
+          label.font-weight-bold BUS #:
+          input.form-control(type='text', name='inputBus')
+          |     &#x9;&#x9;&#x9;
         .form-group.col-md-2
+          label.font-weight-bold BUS TYPE:
           select.form-control(type='text', name='inputType')
             option(selected='') Choose Bus Type...
             |         &#x9;&#x9;&#x9;&#x9;
@@ -99,10 +105,12 @@ html
             option EXPRESS
         |     &#x9;&#x9;&#x9;
         .col-md-2
+          label.font-weight-bold DATE IDENTIFIED:
           input.form-control(type='date', name='inputDate', placeholder='MM/DD/YY')
         |    &#x9;&#x9;&#x9;
         |     &#x9;&#x9;&#x9;
         .form-group.col-md-2
+          label.font-weight-bold NO PART:
           select.form-control(type='text', name='inputNoPart')
             option(selected='') No Part...
             |         &#x9;&#x9;&#x9;&#x9;
@@ -111,13 +119,45 @@ html
             option False
         |     &#x9;&#x9;&#x9;
         .col-md-1
-          input.form-control(type='text', name='inputReason', placeholder='Reason')
+          label.font-weight-bold REASON:
+          input.form-control(type='text', name='inputReason')
         |     &#x9;&#x9;&#x9;
         .col-md-1
-          input.form-control(type='text', name='inputDesc', placeholder='Desc')
+          label.font-weight-bold DESC:
+          input.form-control(type='text', name='inputDesc')
         |    &#x9;&#x9;&#x9;&#x9;
         .col-md-1
+          label.font-weight-bold ADD:
           button.btn.btn-dark(type='submit') Add
-        | &#x9;&#x9;
-        form
-          script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
+          | &#x9;&#x9;
+    .row.justify-content-center.pt-5
+    h4.row.justify-content-center(style='color:#800000;') Search Archives
+    | &#x9;&#x9;
+    form(method='GET', action='/search')
+      .row.justify-content-center.mb-3
+        .col-md-2
+          label.font-weight-bold BUS #: 
+          input.form-control.ml-2(type='text' name='searchNum') 
+        .form-group.col-md-2
+            label.font-weight-bold TYPE:
+            select.form-control(type='text', name='searchType')
+              option SMA
+              |         &#x9;&#x9;&#x9;&#x9;
+              option BRT
+              |         &#x9;&#x9;&#x9;&#x9;
+              option NON-REV
+              |         &#x9;&#x9;&#x9;&#x9;
+              option EXPRESS
+              |     &#x9;&#x9;&#x9;
+        .col-md-2
+          label.font-weight-bold TO (DATE IDENTIFIED): 
+          input.form-control.ml-2(type='text' name='searchFrom' placeholder='MM/DD/YY')
+        .col-md-2
+          label.font-weight-bold FROM (DATE IDENTIFIED): 
+          input.form-control.ml-2(type='text' name='searchTo' placeholder='MM/DD/YY')
+        .col-md-1
+          label.font-weight-bold SEARCH:
+          button.btn.btn-dark(type='submit') Go
+          | &#x9;&#x9;
+    form
+      script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')

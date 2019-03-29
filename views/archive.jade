@@ -8,6 +8,8 @@ html
   body
     h1.row.justify-content-center(style='color:#800000;') ARCHIVE OF BUSES
     | &#x9;&#x9;
+    .row.justify-content-start.ml-4
+      h2 Results:
     .row.justify-content-center
       table.table-bordered(style='width:95%;')
         thead
@@ -30,10 +32,13 @@ html
         -for bus in addBus
           tr#passdownTable
             input(type='hidden', name='id', value='bus._id' ) 
-            td #{bus.busNumber}
-            td #{bus.type}
-            td #{moment(bus.date).format('MM/DD/YY')}
-            td #{moment(bus.dateFixed).format('MM/DD/YY')}
-            td #{bus.noPart}
-            td #{bus.reason}
-            td #{bus.description}
+            td.p-1 #{bus.busNumber}
+            td.p-1 #{bus.type}
+            td.p-1 #{moment(bus.date).format('MM/DD/YY')}
+            td.p-1 #{moment(bus.dateFixed).format('MM/DD/YY')}
+            td.p-1 #{bus.noPart}
+            td.p-1 #{bus.reason}
+            td.p-1 #{bus.description}
+    .row.justify-content-center.pt-5
+      a(href='/')
+        button.btn.btn-dark.btn-sm.mb-4(type='button') CONTROLLER

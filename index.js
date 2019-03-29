@@ -37,7 +37,7 @@ app.post('/submit', function(request,response){
 		reason      : request.body.inputReason,
 		description : request.body.inputDesc,
 		fixed       : "False",
-		fixDate     : "0"
+		fixDate     : Date()
 	}).save(function(err){
         if(err){
             response.redirect('/');
@@ -52,8 +52,7 @@ app.post('/submit', function(request,response){
 app.get('/', function(request, response){
 	addBus.find({fixed : "False"}, function(err, addBus){
 		if (err){
-		response.status(500).send({error:"Could not fetch data"});
-		
+			response.status(500).send({error:"Could not fetch data"});
 		} else {
 			response.render('index', {
 				addBus : addBus
@@ -62,23 +61,27 @@ app.get('/', function(request, response){
 	});
 });
 
-//RETIRVES BUS HISTORY OF FIXES
-app.get('/archive', function(request, response){
-	addBus.find({fixed : "True"}, function(err, addBus){
-		if (err){
-		response.status(500).send({error:"Could not fetch data"});
-		
-		} else {
-			response.render('archive', {
-				addBus : addBus
-			});
+
+//RETRIEVES SEARCH RESULTS OF ARCHIVED BUSES
+app.get('/search', function(request, response) {
+	addBus.find(
+// 		{busNumber: request.body.searchNum},
+		{fixed: "True"},
+// 		{date: {"$gte": request.body.searchFrom, "$lt": request.body.searchTo}}, 
+		function(err, addBus) {
+			if (err) {
+				response.status(500).send({error:"Could not fetch data"});	
+			} else {
+				response.render('archive', {
+					addBus : addBus
+				});
 		}
 	});
 });
 
 //VIEW OF CURRENT BUSES ON HOLD FOR MECHANICS
 app.get('/screen', function(request, response){
-	addBus.find({}, function(err, addBus){
+	addBus.find({fixed : "False"}, function(err, addBus){
 		if (err){
 		response.status(500).send({error:"Could not fetch data"});
 		} else {
@@ -111,7 +114,7 @@ app.post('/updateBus/:_id', function(request, response){
 		reason      : request.body.upReason,
 		description : request.body.upDesc,
 		fixed       : request.body.fixed,
-		dateFixed   : request.body.fixDate
+		dateFixed   : Date()
 	};
 	addBus.findOneAndUpdate({_id : request.params._id}, updatedBus, {upsert:true, new:true}, function(err, doc){
 		if (err) {
@@ -133,7 +136,6 @@ app.get('/delete/:_id', function(request,response){
 			response.redirect('/');
 		}
 	});
-
 });
 
 app.listen(3000, function() {

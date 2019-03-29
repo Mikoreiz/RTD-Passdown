@@ -10,7 +10,7 @@ html
     | &#x9;&#x9;
     form(method='POST', action='/updateBus/#{editBus._id}')
         input(type='hidden', name='id', value='#{editBus._id}')
-        .row.justify-content-center
+        .row.justify-content-start.pt-3.pl-5.ml-1
           .col-md-1
             label Number
             input.form-control(type='text', name='upBus', value='#{editBus.busNumber}') 
@@ -27,7 +27,7 @@ html
               option NON-REV
               |         &#x9;&#x9;&#x9;&#x9;
               option EXPRESS
-          |     &#x9;&#x9;&#x9;
+              |     &#x9;&#x9;&#x9;
           .col-md-2
             label Date
             - var edDate = moment(editBus.date).format('MM/DD/YY')
@@ -51,24 +51,25 @@ html
             label Description
             input.form-control(type='text', name='upDesc', value='#{editBus.description}')
           |    &#x9;&#x9;&#x9;&#x9;
-        .row.justify-content-center
-          .col-md-2
-            label Date Fixed
-            input.form-control.mb-3(type='text', name='fixDate', value='MM/DD/YY')
+        .row.justify-content-start.pl-5.ml-1
           .form-group.col-md-2
             label Fixed
             select.form-control(type='text', name='fixed')
               option(selected='') False
               |         &#x9;&#x9;&#x9;&#x9;
               option True
-        .row.justify-content-center
+          .col-md-2
+            - var dateNow = Date.now()
+            - var fixedDate = moment(dateNow).format('MM/DD/YY')
+            label Date Fixed
+            input.form-control.mb-3(type='text', name='fixDate', value='#{fixedDate}')
+        .row.justify-content-start.pt-3.pl-5.ml-1
           .col-md-1
-            button.btn.btn-dark(type='submit') Update
+            button.btn.btn-primary(type='submit') Update
           | &#x9;&#x9;
-     form.mt-3(method='GET', action='/delete/#{editBus._id}')
-        .row.justify-content-center
           .col-md-1
-            button.btn.btn-danger(type='submit') Delete
-          | &#x9;&#x9;
+            a(href='/')
+              button.btn.btn-dark(type='button') Cancel
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
