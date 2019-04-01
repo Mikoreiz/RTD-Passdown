@@ -61,20 +61,25 @@ app.get('/', function(request, response){
 	});
 });
 
-
-//RETRIEVES SEARCH RESULTS OF ARCHIVED BUSES
 app.get('/search', function(request, response) {
-	addBus.find(
-// 		{busNumber: request.body.searchNum},
-		{fixed: "True"},
-// 		{date: {"$gte": request.body.searchFrom, "$lt": request.body.searchTo}}, 
-		function(err, addBus) {
-			if (err) {
-				response.status(500).send({error:"Could not fetch data"});	
-			} else {
-				response.render('archive', {
-					addBus : addBus
-				});
+	var searchFilter = {}
+	searchFilter["fixed"] = "True";
+	if (request.query.searchNum) {
+		searchFilter["busNumber"] = request.query.searchNum;
+	}
+	if (request.query.searchType) {
+		searchFilter["type"] = request.query.searchType;
+	}
+	if (request.query.searchTo) {
+		searchFilter["date"] = {"$gte": request.query.searchFrom, "$lt": request.query.searchTo};
+	}
+	addBus.find(searchFilter, function(err, addBus) {
+		if (err) {
+			response.status(500).send({error:"Could not fetch data"});	
+		} else {
+			response.render('archive', {
+				addBus : addBus
+			});
 		}
 	});
 });
@@ -141,3 +146,4 @@ app.get('/delete/:_id', function(request,response){
 app.listen(3000, function() {
 console.log("Passdown running on port 3000...");
 });
+
