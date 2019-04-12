@@ -61,6 +61,7 @@ app.get('/', function(request, response){
 	});
 });
 
+//RETRIEVES HISTORY OF BUSES BREAKDOWNS
 app.get('/search', function(request, response) {
 	var searchFilter = {}
 	searchFilter["fixed"] = "True";
@@ -77,7 +78,19 @@ app.get('/search', function(request, response) {
 		if (err) {
 			response.status(500).send({error:"Could not fetch data"});	
 		} else {
-			response.render('archive', {
+			response.render('mainArch', {
+				addBus : addBus
+			});
+		}
+	});
+});
+
+app.get('/archive', function(request, response){
+	addBus.find({fixed : "True"}, function(err, addBus){
+		if (err){
+			console.log("Could not fetch data");
+		} else {
+			response.render('mainArch', {
 				addBus : addBus
 			});
 		}

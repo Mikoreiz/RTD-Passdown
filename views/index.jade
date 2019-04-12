@@ -45,7 +45,7 @@ html
           td(style='padding:16px;')
             h4 NON-REV ON HOLD: #{nonCount}
       | &#x9;&#x9;
-      table.table.table-dark(style='width:95%;')
+      table.table.table-dark(style='width:95%; box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.35);')
         thead
           tr(style='background-color:#800000; color:white;')
             th BUS #
@@ -85,7 +85,7 @@ html
     | &#x9;&#x9;
     .row.justify-content-center.mt-5
       div.card.font-weight-light
-        form(method='POST', action='/submit')
+        form(method='POST', action='/submit' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
           .row.justify-content-center.mt-3
             h4 Add A Bus 
           .row.justify-content-center
@@ -131,38 +131,10 @@ html
               input.form-control(type='text', name='inputDesc')
             |    &#x9;&#x9;&#x9;&#x9;
           .row.justify-content-center.m-3
-              button.btn.btn-dark(type='submit') Add
+              button.btn.btn-primary(type='submit') Add
               | &#x9;&#x9;
     .row.justify-content-center.pt-5
-    h4.row.justify-content-center(style='color:#800000;') Search Archives
-    | &#x9;&#x9;
-    form(method='GET', action='/search')
-      .row.justify-content-center.mb-3
-        .col-md-2
-          label.font-weight-bold BUS #: 
-          input.form-control.ml-2(type='text' name='searchNum') 
-        .form-group.col-md-2
-            label.font-weight-bold TYPE:
-            select.form-control(type='text', name='searchType')
-              option #{''}
-              |         &#x9;&#x9;&#x9;&#x9;
-              option SMA
-              |         &#x9;&#x9;&#x9;&#x9;
-              option BRT
-              |         &#x9;&#x9;&#x9;&#x9;
-              option NON-REV
-              |         &#x9;&#x9;&#x9;&#x9;
-              option EXPRESS
-              |     &#x9;&#x9;&#x9;
-        .col-md-2
-          label.font-weight-bold TO (DATE IDENTIFIED): 
-          input.form-control.ml-2(type='text' name='searchFrom' placeholder='MM/DD/YY')
-        .col-md-2
-          label.font-weight-bold FROM (DATE IDENTIFIED): 
-          input.form-control.ml-2(type='text' name='searchTo' placeholder='MM/DD/YY')
-        .col-md-1
-          label.font-weight-bold SEARCH:
-          button.btn.btn-dark(type='submit') Go
-          | &#x9;&#x9;
+      a(href='/archive')
+        button.btn.btn-dark.mb-4(type='button') Archives
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')

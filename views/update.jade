@@ -8,14 +8,15 @@ html
   body
     h1.row.justify-content-center(style='color:#800000;') UPDATE INFORMATION
     | &#x9;&#x9;
-    form(method='POST', action='/updateBus/#{editBus._id}')
+    .row.justify-content-center
+      form.card.font-weight-light(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
         input(type='hidden', name='id', value='#{editBus._id}')
-        .row.justify-content-start.pt-3.pl-5.ml-1
-          .col-md-1
+        .row.ml-5.mt-3
+          .col-md-3
             label Number
             input.form-control(type='text', name='upBus', value='#{editBus.busNumber}') 
           |     &#x9;&#x9;&#x9;
-          .form-group.col-md-2
+          .form-group.col-md-3
             label Type
             select.form-control(type='text', name='upType')
               option(selected='') #{editBus.type}
@@ -28,12 +29,13 @@ html
               |         &#x9;&#x9;&#x9;&#x9;
               option EXPRESS
               |     &#x9;&#x9;&#x9;
-          .col-md-2
+          .col-md-3
             label Date
             - var edDate = moment(editBus.date).format('MM/DD/YY')
             input.form-control(type='date', name='upDate', value='#{edDate}')
           |    &#x9;&#x9;&#x9;
           |    &#x9;&#x9;&#x9;
+        .row.ml-5
           .form-group.col-md-2
             label No Part
             select.form-control(type='text', name='upNoPart')
@@ -43,31 +45,31 @@ html
               |         &#x9;&#x9;&#x9;&#x9;
               option False
           |     &#x9;&#x9;&#x9;
-          .col-md-2
+          .col-md-4
             label Reason
             input.form-control(type='text', name='upReason', value='#{editBus.reason}')
           |     &#x9;&#x9;&#x9;
-          .col-md-2
+          .col-md-4
             label Description
             input.form-control(type='text', name='upDesc', value='#{editBus.description}')
           |    &#x9;&#x9;&#x9;&#x9;
-        .row.justify-content-start.pl-5.ml-1
+        .row.ml-5
           .form-group.col-md-2
             label Fixed
             select.form-control(type='text', name='fixed')
               option(selected='') False
               |         &#x9;&#x9;&#x9;&#x9;
               option True
-          .col-md-2
+          .col-md-3
             - var dateNow = Date.now()
             - var fixedDate = moment(dateNow).format('MM/DD/YY')
             label Date Fixed
             input.form-control.mb-3(type='text', name='fixDate', value='#{fixedDate}')
-        .row.justify-content-start.pt-3.pl-5.ml-1
-          .col-md-1
+        .row.justify-content-center.mb-4.mr-5
+          .col-md-1.mr-4
             button.btn.btn-primary(type='submit') Update
           | &#x9;&#x9;
-          .col-md-1
+          .col-md-1.ml-4
             a(href='/')
               button.btn.btn-dark(type='button') Cancel
           | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;

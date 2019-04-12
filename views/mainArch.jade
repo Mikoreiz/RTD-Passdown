@@ -1,0 +1,70 @@
+doctype html
+html
+  head
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+    | &#x9;&#x9;
+    link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
+  | &#x9;
+  body
+    h1.row.justify-content-center(style='color:#800000;') ARCHIVE OF BUSES
+    | &#x9;&#x9;
+    form(method='GET', action='/search')
+      .row.justify-content-center.mb-3
+        .col-md-2
+          label.font-weight-bold BUS #: 
+          input.form-control.ml-2(type='text' name='searchNum') 
+        .form-group.col-md-2
+            label.font-weight-bold TYPE:
+            select.form-control(type='text', name='searchType')
+              option #{''}
+              |         &#x9;&#x9;&#x9;&#x9;
+              option SMA
+              |         &#x9;&#x9;&#x9;&#x9;
+              option BRT
+              |         &#x9;&#x9;&#x9;&#x9;
+              option NON-REV
+              |         &#x9;&#x9;&#x9;&#x9;
+              option EXPRESS
+              |     &#x9;&#x9;&#x9;
+        .col-md-2
+          label.font-weight-bold TO (DATE IDENTIFIED): 
+          input.form-control.ml-2(type='text' name='searchFrom' placeholder='MM/DD/YY')
+        .col-md-2
+          label.font-weight-bold FROM (DATE IDENTIFIED): 
+          input.form-control.ml-2(type='text' name='searchTo' placeholder='MM/DD/YY')
+        .col-md-1
+          label.font-weight-bold SEARCH:
+          button.btn.btn-dark(type='submit') Go
+          | &#x9;&#x9;
+    .row.justify-content-center
+      table.table.table-bordered.font-weight-light(style='width:92%; box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
+        thead
+          tr(style='background-color:#800000; color:white;')
+            th BUS #
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th TYPE
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th DATE IDENTIFIED
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th DATE FIXED
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th NO PART
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th REASON DOWN
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            th DESCRIPTION
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;&#x9;
+        -for bus in addBus
+          tr#passdownTable
+            input(type='hidden', name='id', value='bus._id' ) 
+            td.p-2 #{bus.busNumber}
+            td.p-2 #{bus.type}
+            td.p-2 #{moment(bus.date).format('MM/DD/YY')}
+            td.p-2 #{moment(bus.dateFixed).format('MM/DD/YY')}
+            td.p-2 #{bus.noPart}
+            td.p-2 #{bus.reason}
+            td.p-2 #{bus.description}
+    .row.justify-content-center.pt-5
+      a(href='/')
+        button.btn.btn-dark.mb-4(type='button') Controller
