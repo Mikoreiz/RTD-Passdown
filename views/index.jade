@@ -31,19 +31,19 @@ html
       table
         tr
           td
-            h4 TOTAL BUSES ON HOLD: #{addBus.length}
+            h4.font-weight-light TOTAL BUSES ON HOLD: #{addBus.length}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 SMA RUNNING: #{smaCount}
+            h4.font-weight-light SMA RUNNING: #{smaCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 BRT RUNNING: #{brtCount}
+            h4.font-weight-light BRT RUNNING: #{brtCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 EXPRESS ON HOLD: #{expCount}
+            h4.font-weight-light EXPRESS ON HOLD: #{expCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 NON-REV ON HOLD: #{nonCount}
+            h4.font-weight-light NON-REV ON HOLD: #{nonCount}
       | &#x9;&#x9;
       table.table.table-dark(style='width:95%; box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.35);')
         thead
@@ -87,14 +87,14 @@ html
       div.card.font-weight-light
         form(method='POST', action='/submit' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
           .row.justify-content-center.mt-3
-            h4 Add A Bus 
+            h4.font-weight-light Add A Bus 
           .row.justify-content-center
             .col-md-4
-              label.font-weight-bold Bus #:
+              label.font-weight-light Bus #:
               input.form-control(type='text', name='inputBus')
               |     &#x9;&#x9;&#x9;
             .form-group.col-md-4
-              label.font-weight-bold Bus Type:
+              label.font-weight-light Bus Type:
               select.form-control(type='text', name='inputType')
                 option(selected='') #{''}
                 |         &#x9;&#x9;&#x9;&#x9;
@@ -108,12 +108,12 @@ html
             |     &#x9;&#x9;&#x9;
           .row.justify-content-center
             .col-md-4
-              label.font-weight-bold Date Identified:
+              label.font-weight-light Date Identified:
               input.form-control(type='date', name='inputDate', placeholder='MM/DD/YY')
             |    &#x9;&#x9;&#x9;
             |     &#x9;&#x9;&#x9;
             .form-group.col-md-4
-              label.font-weight-bold No Part:
+              label.font-weight-light No Part:
               select.form-control(type='text', name='inputNoPart')
                 option(selected='') No Part...
                 |         &#x9;&#x9;&#x9;&#x9;
@@ -123,11 +123,11 @@ html
             |     &#x9;&#x9;&#x9;
           .row.justify-content-center
             .col-md-4
-              label.font-weight-bold Reason:
+              label.font-weight-light Reason:
               input.form-control(type='text', name='inputReason')
             |     &#x9;&#x9;&#x9;
             .col-md-4
-              label.font-weight-bold Description:
+              label.font-weight-light Description:
               input.form-control(type='text', name='inputDesc')
             |    &#x9;&#x9;&#x9;&#x9;
           .row.justify-content-center.m-3

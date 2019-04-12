@@ -30,21 +30,21 @@ html
       table
         tr
           td
-            h4 TOTAL BUSES ON HOLD: #{addBus.length}
+            h4.font-weight-light TOTAL BUSES ON HOLD: #{addBus.length}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 SMA RUNNING: #{smaCount}
+            h4.font-weight-light SMA RUNNING: #{smaCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 BRT RUNNING: #{brtCount}
+            h4.font-weight-light BRT RUNNING: #{brtCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 EXPRESS ON HOLD: #{expCount}
+            h4.font-weight-light EXPRESS ON HOLD: #{expCount}
           | &#x9;&#x9;&#x9;&#x9;&#x9;
           td(style='padding:16px;')
-            h4 NON-REV ON HOLD: #{nonCount}
+            h4.font-weight-light NON-REV ON HOLD: #{nonCount}
       | &#x9;&#x9;
-      table.table.table-dark.text-monospace(style='width:95%;')
+      table.table.table-dark.font-weight-light(style='width:95%; box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.35);')
         thead
           tr(style='background-color:#800000; color:white;')
             th BUS #
