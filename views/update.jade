@@ -6,10 +6,10 @@ html
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
   | &#x9;
   body
-    h1.row.justify-content-center(style='color:#800000;') UPDATE INFORMATION
+    h1.row.justify-content-center.mt-3(style='color:#800000;') UPDATE INFORMATION
     | &#x9;&#x9;
-    .row.justify-content-center.mt-2
-      form.card.font-weight-light(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
+    .row.justify-content-center
+      form.card.font-weight-light.mt-3(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
         input(type='hidden', name='id', value='#{editBus._id}')
         .row.ml-5.mt-3
           .col-md-3
