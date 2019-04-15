@@ -8,7 +8,7 @@ html
   body
     h1.row.justify-content-center(style='color:#800000;') UPDATE INFORMATION
     | &#x9;&#x9;
-    .row.justify-content-center
+    .row.justify-content-center.mt-2
       form.card.font-weight-light(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
         input(type='hidden', name='id', value='#{editBus._id}')
         .row.ml-5.mt-3
