@@ -45,7 +45,7 @@ html
           td(style='padding:16px;')
             h4.font-weight-light NON-REV ON HOLD: #{nonCount}
       | &#x9;&#x9;
-      table.table.table-dark(style='width:95%; box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.35);')
+      table.table.table-dark(style='width:95%; box-shadow: 7px 7px 6px 0px rgba(0,0,0,0.25);')
         thead
           tr(style='background-color:#800000; color:white;')
             th BUS #
@@ -85,17 +85,17 @@ html
     | &#x9;&#x9;
     .row.justify-content-center.mt-5
       div.card.font-weight-light
-        form(method='POST', action='/submit' style='box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.35);')
+        form(method='POST', action='/submit' style='box-shadow: 7px 7px 6px 0px rgba(0,0,0,0.15);')
           .row.justify-content-center.mt-3
             h4.font-weight-light Add A Bus 
           .row.justify-content-center
             .col-md-4
               label.font-weight-light Bus #:
-              input.form-control(type='text', name='inputBus')
+              input.form-control(type='text', name='inputBus' required)
               |     &#x9;&#x9;&#x9;
             .form-group.col-md-4
               label.font-weight-light Bus Type:
-              select.form-control(type='text', name='inputType')
+              select.form-control(type='text', name='inputType' required)
                 option(selected='') #{''}
                 |         &#x9;&#x9;&#x9;&#x9;
                 option SMA
@@ -109,12 +109,12 @@ html
           .row.justify-content-center
             .col-md-4
               label.font-weight-light Date Identified:
-              input.form-control(type='date', name='inputDate', placeholder='MM/DD/YY')
+              input.form-control(type='date', name='inputDate', placeholder='MM/DD/YY' required)
             |    &#x9;&#x9;&#x9;
             |     &#x9;&#x9;&#x9;
             .form-group.col-md-4
               label.font-weight-light No Part:
-              select.form-control(type='text', name='inputNoPart')
+              select.form-control(type='text', name='inputNoPart' required)
                 option(selected='') No Part...
                 |         &#x9;&#x9;&#x9;&#x9;
                 option True
@@ -124,11 +124,11 @@ html
           .row.justify-content-center
             .col-md-4
               label.font-weight-light Reason:
-              input.form-control(type='text', name='inputReason')
+              input.form-control(type='text', name='inputReason' required)
             |     &#x9;&#x9;&#x9;
             .col-md-4
               label.font-weight-light Description:
-              input.form-control(type='text', name='inputDesc')
+              input.form-control(type='text', name='inputDesc' required)
             |    &#x9;&#x9;&#x9;&#x9;
           .row.justify-content-center.m-3
               button.btn.btn-primary(type='submit') Add
