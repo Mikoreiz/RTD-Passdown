@@ -14,16 +14,15 @@ app.locals.moment = require('moment');
 
 //SCHEMA OF BUS
 var bus = new Schema({
-	busNumber   : Number,
-	type        : String,
-	date        : Date, 
-	noPart      : String, 
-	reason      : String, 
-	description : String,
+	busNumber   : {type: Number},
+	type        : {type: String},
+	date        : {type: Date},
+	noPart      : {type: String},
+	reason      : {type: String},
+	description : {type: String},
 	fixed       : {type: String, default: "False"},
 	dateFixed   : {type: Date, default: Date()}
 });
-
 
 var addBus = mongoose.model('holdbus', bus);
 

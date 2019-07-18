@@ -2,63 +2,47 @@ doctype html
 html
   head
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
-    | &#x9;&#x9;
     link(rel='stylesheet', href='/Users/Macbook/Documents/GitHub/RTD-Passdown/style/table.css')
-  | &#x9;
   body
     h1.row.justify-content-center.mt-3(style='color:#800000;') UPDATE INFORMATION
-    | &#x9;&#x9;
     .row.justify-content-center
-      form.card.font-weight-light.mt-3(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 7px 7px 6px 0px rgba(0,0,0,0.15);')
+      form.card.font-weight-light.mt-3(method='POST', action='/updateBus/#{editBus._id}' style='box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.15);')
         input(type='hidden', name='id', value='#{editBus._id}')
         .row.ml-5.mt-3
           .col-md-3
             label Number
             input.form-control(type='text', name='upBus', value='#{editBus.busNumber}' required) 
-          |     &#x9;&#x9;&#x9;
           .form-group.col-md-3
             label Type
             select.form-control(type='text', name='upType' required)
               option(selected='') #{editBus.type}
-              |         &#x9;&#x9;&#x9;&#x9;
               option SMA
-              |         &#x9;&#x9;&#x9;&#x9;
               option BRT
-              |         &#x9;&#x9;&#x9;&#x9;
               option NON-REV
-              |         &#x9;&#x9;&#x9;&#x9;
               option EXPRESS
-              |     &#x9;&#x9;&#x9;
           .col-md-3
             label Date
             - var edDate = moment(editBus.date).format('MM/DD/YY')
             input.form-control(type='date', name='upDate', value='#{edDate}' required)
-          |    &#x9;&#x9;&#x9;
-          |    &#x9;&#x9;&#x9;
         .row.ml-5
           .form-group.col-md-2
             label No Part
             select.form-control(type='text', name='upNoPart' required)
               option(selected='') #{editBus.noPart}
-              |         &#x9;&#x9;&#x9;&#x9;
               option True
-              |         &#x9;&#x9;&#x9;&#x9;
               option False
-          |     &#x9;&#x9;&#x9;
           .col-md-4
             label Reason
             input.form-control(type='text', name='upReason', value='#{editBus.reason}' required)
-          |     &#x9;&#x9;&#x9;
           .col-md-4
             label Description
-            input.form-control(type='text', name='upDesc', value='#{editBus.description}' required)
-          |    &#x9;&#x9;&#x9;&#x9;
+            input.form-control(type='text', name='upDesc', value='#{editBus.description}')
+
         .row.ml-5
           .form-group.col-md-2
             label Fixed
             select.form-control(type='text', name='fixed' required)
               option(selected='') False
-              |         &#x9;&#x9;&#x9;&#x9;
               option True
           .col-md-3
             - var dateNow = Date.now()
@@ -68,10 +52,8 @@ html
         .row.justify-content-center.mb-4.mr-5
           .col-md-1.mr-4
             button.btn.btn-primary(type='submit') Update
-          | &#x9;&#x9;
           .col-md-1.ml-4
             a(href='/')
               button.btn.btn-dark(type='button') Cancel
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
     form
       script(type='text/javascript', src='/Users/Macbook/Documents/GitHub/RTD-Passdown/index.js')
