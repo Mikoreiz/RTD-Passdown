@@ -1,14 +1,16 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var bus = new Schema({
-	busNumber : Number,
+const bus = new Schema({
+	number : Number,
 	type: String,
-	date : Date,
-	noPart: {type: Boolean, default: false},
-	reason : String,
+	date : {type: Date, default: new Date()},
+	noPart: Boolean,
 	description : String,
-});
+	fixed: {type: Boolean, default: false},
+	dateFixed: {type: Date, default: null}
+},
+{ collection: "bus" })
 
-module.exports = mongoose.model('Bus', bus);
+module.exports = PassDown = mongoose.model('Bus', bus)
 	
