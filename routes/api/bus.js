@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
 
         const add = await bus.save()
         
-        res.json(bus)
+        res.json({data: bus})
 
     } catch (err) {
         console.error(err.message)
