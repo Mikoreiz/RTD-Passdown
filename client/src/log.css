@@ -1,0 +1,51 @@
+body {
+    background-color: white;
+}
+
+table {
+    width: 95%;
+    border: 0.3em solid #E1E1E1;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+}
+
+.logTable {
+    border-spacing: 0em;
+}
+
+.busRepair {
+    height: 2em;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 10em;
+    outline: solid thin #E1E1E1;
+}
+
+tr.busRepair td {
+    text-align: center;
+    height: 1.6em;
+    font-weight: bold;
+}
+
+.tableHeading {
+    background-color: #800000;
+    color: white;
+    height: 1.8em;
+    font-size: 1.5em;
+}
+
+form {
+    width: 83%;
+    height: 3.5em;
+    margin-top: 6em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 0.2em solid #E1E1E1;
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+}

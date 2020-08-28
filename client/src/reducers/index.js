@@ -3,6 +3,6 @@ import repair from './repair'
 import archive from './archive'
 
 export default combineReducers({
-    departures,
-    realtime
+    repair, 
+    archive
 })

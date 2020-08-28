@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
             return res.status(400).json({ msg: "No buses"})
         }
         
-        res.json(buses)
+        res.json({data: buses})
         console.log(buses)
 
     } catch (err) {
@@ -91,7 +91,7 @@ router.get("/archive", async (req, res) => {
             return res.status(400).send("No archived logs found")
         }
 
-        res.json(archive)
+        res.json({data: archive})
 
     } catch (err) {
         console.error(err.message)
