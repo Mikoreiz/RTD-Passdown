@@ -1,4 +1,4 @@
-import { GET_BUSES, BUSES_ERROR, ADD_BUS, ADD_BUS_ERROR } from '../actions/types'
+import { GET_BUSES, BUSES_ERROR } from '../actions/types'
 
 const initialState = {
     repair: [],
@@ -17,19 +17,7 @@ export default function(state = initialState, action) {
                 repair: payload,
                 loading: false
             }
-        case ADD_BUS:
-            return {
-                ...state,
-                add: payload,
-                loading: false
-            }
         case BUSES_ERROR:
-            return {
-                ...state,
-                error: payload,
-                loading: false
-            }
-        case ADD_BUS_ERROR:
             return {
                 ...state,
                 error: payload,

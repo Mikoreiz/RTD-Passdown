@@ -39,6 +39,8 @@ class RepairLog extends Component {
                             <th>NO PART</th>
                             <th>DESCRIPTION</th>
                             <th>DAYS OUT</th>
+                            <th>UPDATE</th>
+
                         </tr>
                         {repairList}
                     </tbody>

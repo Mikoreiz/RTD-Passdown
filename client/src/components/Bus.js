@@ -19,6 +19,7 @@ class Bus extends Component {
                     <td>{noPart}</td>
                     <td>{rep.description}</td>
                     <td>{daysOut}</td>
+                    <td><button>Edit</button></td>
                 </tr>
             </Fragment>
         )
