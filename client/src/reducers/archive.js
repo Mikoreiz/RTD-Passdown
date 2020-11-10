@@ -2,7 +2,6 @@ import { GET_ARCHIVE, ARCHIVE_ERROR } from '../actions/types'
 
 const initialState = {
     archive: [],
-    repos: [],
     loading: true,
     erorr: {}
 }

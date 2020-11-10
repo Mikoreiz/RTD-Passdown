@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
 import '../log.css'
 
-const Bus = ({ bus: { 
+const BusView = ({ bus: { 
         _id,
         date,
         type,
@@ -26,16 +25,13 @@ const Bus = ({ bus: {
                 <td>{noPartStr}</td>
                 <td>{description}</td>
                 <td>{daysOut}</td>
-                <td>
-                    <button><Link to={`update/${_id}`}>Edit</Link></button>
-                </td>
             </tr>
         </Fragment>
     )
 }
 
-Bus.propTypes = {
+BusView.propTypes = {
     bus: PropTypes.object.isRequired
 }
 
-export default Bus
+export default BusView

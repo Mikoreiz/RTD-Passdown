@@ -1,16 +1,19 @@
-const archiveOptions = (req = {}) => {
+const archiveOptions = (query = {}) => {
     const fields = {}
 
     fields['fixed'] = true
 
-    if (req.body.number) {
-        fields['number'] = req.body.number
+    if (query.number) {
+        fields['number'] = query.number
     }
-    if (req.body.type) {
-        fields['type'] = req.body.type
+    if (query.type) {
+        fields['type'] = query.type
     }   
-    if (req.body.date) {
-        fields['date'] = req.body.date
+    if (query.date) {
+        fields['date'] = {
+            $gte: query.from,
+            $lt: query.to
+        }
     }
 
     return fields

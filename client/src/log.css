@@ -37,7 +37,7 @@ tr.busRepair td {
     font-size: 1.5em;
 }
 
-form {
+form.addForm {
     width: 83%;
     height: 3.5em;
     margin-top: 6em;
@@ -48,4 +48,51 @@ form {
     -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+}
+
+form.filterForm {
+    width: 83%;
+    height: 2.5em;
+    margin-top: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+form.updateForm {
+    width: 45%;
+    height: 20em;
+    margin-top: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1em;
+    border: 0.2em solid #E1E1E1;
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
+}
+
+.updateHeader {
+    margin-bottom: 2em;
+    color: #800000;
+}
+
+.updateFormInput {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+button {
+    font-size: 1em;
+}
+
+.deleteButton {
+    color: red;
+    margin: 2em;
+}
+
+.goBack {
+    margin: 1.5em;
+
 }

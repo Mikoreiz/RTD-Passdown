@@ -1,4 +1,6 @@
 export const GET_BUSES = 'GET_BUSES'
+export const GET_BUS = 'GET_BUS'
+export const GET_BUS_ERROR = 'GET_BUS_ERROR'
 export const BUSES_ERROR = 'BUSES_ERROR'
 export const GET_ARCHIVE = 'GET_ARCHIVE'
 export const ARCHIVE_ERROR = 'ARCHIVE_ERROR'

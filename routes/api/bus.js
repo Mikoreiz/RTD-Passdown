@@ -1,6 +1,5 @@
 const express = require("express")
 const router = express.Router()
-const cors = require('cors')
 const updateOptions = require("../../helpers/updateOptions")
 const archiveOptions = require("../../helpers/archiveOptions")
 const Bus = require("../../model/bus")
@@ -95,28 +94,7 @@ router.delete("/delete/:_id", async (req, res) => {
     }
 })
 
-/*---------------------------------------
-  For archived logs
-----------------------------------------*/
-
-router.get("/archive", async (req, res) => {
-    try {
-
-        const fields = archiveOptions(req)
-
-        const archive = await Bus.find(fields)
-
-        if(!archive) {
-            return res.status(400).send("No archived logs found")
-        }
-
-        res.json({data: archive})
-
-    } catch (err) {
-        console.error(err.message)
-        res.status(500).send("Server error")
-    }
-})
-
 module.exports = router
+
+
 

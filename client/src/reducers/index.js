@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import repair from './repair'
+import bus from './bus'
 import archive from './archive'
 
 export default combineReducers({
-    repair, 
+    bus, 
     archive
 })

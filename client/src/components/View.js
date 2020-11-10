@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import Bus from './Bus'
-import AddForm from './AddForm'
+import BusView from './BusView'
 import { connect } from 'react-redux'
 import { getRepairLog } from '../actions/repairLog'
 import moment from 'moment'
 import '../log.css'
 
-const RepairLog = ({getRepairLog, bus: {buses, loading}}) => {
+const View = ({getRepairLog, bus: {buses, loading}}) => {
     useEffect(() => {
         getRepairLog()
     }, [getRepairLog])
@@ -31,23 +30,21 @@ const RepairLog = ({getRepairLog, bus: {buses, loading}}) => {
                                     <th>NO PART</th>
                                     <th>DESCRIPTION</th>
                                     <th>DAYS OUT</th>
-                                    <th>UPDATE</th>
                                 </tr>
                                 {buses && !loading ? (buses.data.map(bus => (
-                                    <Bus key={bus._id} bus={bus}/>
+                                    <BusView key={bus._id} bus={bus}/>
                                 ))): (
                                     <h1>No buses found</h1>
                                 )}
                             </tbody>
                         </table>
-                        <AddForm/>
                     </Fragment>
                 )}
             </Fragment>
         )
 }
 
-RepairLog.propTypes = {
+View.propTypes = {
     getRepairLog: PropTypes.func.isRequired,
     bus: PropTypes.object.isRequired
 }
@@ -59,4 +56,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getRepairLog }
-)(RepairLog)
+)(View)
