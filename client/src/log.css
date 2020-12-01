@@ -38,8 +38,8 @@ tr.busRepair td {
 }
 
 form.addForm {
-    width: 83%;
-    height: 3.5em;
+    width: 48%;
+    height: 8.2em;
     margin-top: 6em;
     margin-left: auto;
     margin-right: auto;
@@ -61,7 +61,7 @@ form.filterForm {
 
 form.updateForm {
     width: 45%;
-    height: 20em;
+    height: 22em;
     margin-top: 3em;
     margin-left: auto;
     margin-right: auto;

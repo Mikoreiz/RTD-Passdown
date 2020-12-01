@@ -10,6 +10,7 @@ const BusView = ({ bus: {
         number,
         noPart,
         description,
+        status,
  }}) => {
 
 
@@ -20,11 +21,12 @@ const BusView = ({ bus: {
         <Fragment>
             <tr className="busRepair">
                 <td>{moment(date).format('MM/DD/YY')}</td>
-                <td>{type}</td>
                 <td>{number}</td>
+                <td>{type}</td>
                 <td>{noPartStr}</td>
                 <td>{description}</td>
                 <td>{daysOut}</td>
+                <td>{status}</td>
             </tr>
         </Fragment>
     )

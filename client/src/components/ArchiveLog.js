@@ -25,10 +25,11 @@ const Archive = ({getArchiveLog, archive: {archive, loading}}) => {
                             <tbody>
                                 <tr className="tableHeading">
                                     <th>DATE OUT</th>
-                                    <th>TYPE</th>
                                     <th>BUS #</th>
+                                    <th>TYPE</th>
                                     <th>NO PART</th>
-                                    <th>DESCRIPTION</th>
+                                    <th>REASON DOWN</th>
+                                    <th>STATUS</th>
                                     <th>DAYS OUT</th>
                                 </tr>
                                 {archive && !loading ? (archive.data.map(bus => (

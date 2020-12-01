@@ -15,7 +15,8 @@ router.post("/add", async (req, res) => {
             number : req.body.number,
             type: req.body.type,
             noPart: req.body.noPart,
-	        description : req.body.description,
+            description : req.body.description,
+            status: req.body.status
         })
 
         const add = await bus.save()

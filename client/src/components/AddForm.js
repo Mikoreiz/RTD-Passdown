@@ -11,13 +11,14 @@ const initialState = {
     number: 0,
     noPart: false,
     description: '',
+    status: ''
 }
 
 const AddForm = ({ addBus }) => {   
 
     const [formData, setFormData] = useState(initialState)
     
-    const { date, type, number, noPart, description } = formData
+    const { date, type, number, noPart, description, status } = formData
 
     const onChange = e => {
         setFormData({...formData, [e.target.name]: e.target.value })
@@ -32,7 +33,7 @@ const AddForm = ({ addBus }) => {
     return (
         <Fragment>
             <form className='addForm' onSubmit={onSubmit}>
-                <div style={{marginTop: "1em"}}>
+                <div style={{marginTop: "1em", marginBottom: "1em"}}>
                     <label>Date: </label>&nbsp;
                     <input type='date' name='date' value={moment(date).format('yyyy-MM-DD')} placeholder='MM/DD/YY' onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Type: </label>&nbsp;
@@ -43,8 +44,10 @@ const AddForm = ({ addBus }) => {
                         <option>NON-REV</option>
                         <option>EXPRESS</option>
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Bus Number: </label>&nbsp;
-                <input type='number' name='number' value={number} placeholder='' onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        
+                    <label>Bus Number: </label>&nbsp;
+                    <input type='number' name='number' value={number} placeholder='' onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                </div> 
+                <div style={{marginBottom: "1em"}}>                    
                     <label>No Part: </label>&nbsp;
                     <select type='text' name='noPart' value={noPart} placeholder='' onChange={onChange} required>
                         <option>true</option>
@@ -52,8 +55,10 @@ const AddForm = ({ addBus }) => {
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Description: </label>&nbsp;
                     <input type='text' name='description' value={description} placeholder='' onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input onClick={() => window.location.reload(false)} type='submit' value='+ Add A Bus' />
+                    <label>Status: </label>&nbsp;
+                    <input type='text' name='status' value={status} placeholder='' onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
+                <input onClick={() => window.location.reload(false)} type='submit' value='+ Add A Bus' />
             </form>
         </Fragment>
     )

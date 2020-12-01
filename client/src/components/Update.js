@@ -14,7 +14,8 @@ const initialState = {
     noPart: false,
     description: '',
     fixed: false,
-    dateFixed: Date()
+    dateFixed: Date(),
+    status: ''
 }
 
 const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteBus, match}) => {
@@ -47,7 +48,8 @@ const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteB
         noPart,
         description,
         fixed,
-        dateFixed
+        dateFixed,
+        status
     } = formData
 
     const onChange = e => {
@@ -102,7 +104,9 @@ const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteB
                             <option>false</option>
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div style={{'margin-top':'2em'}}>
-                    <label>Date Fixed: </label>&nbsp;
+                        <label>Status: </label>&nbsp;
+                        <input type='text' name='status' value={status} onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>Date Fixed: </label>&nbsp;
                         <input type='date' name='dateFixed' value={moment(dateFixed).format('yyyy-MM-DD')} onChange={onChange}></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                     <div className='updateButtons'>

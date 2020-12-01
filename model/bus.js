@@ -7,6 +7,7 @@ const bus = new Schema({
 	date : {type: Date, default: new Date()},
 	noPart: Boolean,
 	description : String,
+	status: String,
 	fixed: {type: Boolean, default: false},
 	dateFixed: {type: Date, default: null}
 },

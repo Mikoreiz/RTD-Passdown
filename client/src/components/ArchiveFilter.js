@@ -7,10 +7,10 @@ import moment from 'moment'
 import '../log.css'
 
 const initialState = {
-    number: 0,
-    type: '',
-    from: Date(),
-    to: Date()
+    number: null,
+    type: null,
+    from: null,
+    to: null
 }
 
 const ArchiveFilter = () => {

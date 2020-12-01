@@ -26,10 +26,11 @@ const RepairLog = ({getRepairLog, bus: {buses, loading}}) => {
                             <tbody>
                                 <tr className="tableHeading">
                                     <th>DATE</th>
-                                    <th>TYPE</th>
                                     <th>BUS #</th>
+                                    <th>TYPE</th>
                                     <th>NO PART</th>
-                                    <th>DESCRIPTION</th>
+                                    <th>REASON DOWN</th>
+                                    <th>STATUS</th>
                                     <th>DAYS OUT</th>
                                     <th>UPDATE</th>
                                 </tr>
