@@ -11,7 +11,8 @@ const Bus = ({ bus: {
         number,
         noPart,
         description,
-        status
+        status,
+        rtsDate
  }}) => {
 
 
@@ -21,12 +22,13 @@ const Bus = ({ bus: {
     return (
         <Fragment>
             <tr className="busRepair">
-                <td>{moment(date).format('MM/DD/YY')}</td>
                 <td>{number}</td>
                 <td>{type}</td>
+                <td>{moment(date).format('MM/DD/YY')}</td>
                 <td>{noPartStr}</td>
                 <td>{description}</td>
                 <td>{status}</td>
+                <td>{moment(rtsDate).format('MM/DD/YY')}</td>
                 <td>{daysOut}</td>
                 <td>
                     <button><Link to={`update/${_id}`}>Edit</Link></button>

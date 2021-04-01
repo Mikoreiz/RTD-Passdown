@@ -3,13 +3,13 @@ const archiveOptions = (query = {}) => {
 
     fields['fixed'] = true
 
-    if (query.number) {
+    if (query.number != '0') {
         fields['number'] = query.number
     }
-    if (query.type) {
+    if (query.type != '') {
         fields['type'] = query.type
     }   
-    if (query.date) {
+    if (query.from != '' && query.to != '') {
         fields['date'] = {
             $gte: query.from,
             $lt: query.to

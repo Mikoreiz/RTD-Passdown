@@ -11,6 +11,7 @@ const RepairLog = ({getRepairLog, bus: {buses, loading}}) => {
     useEffect(() => {
         getRepairLog()
     }, [getRepairLog])
+    console.log(buses)
 
         return (
             <Fragment>
@@ -25,12 +26,13 @@ const RepairLog = ({getRepairLog, bus: {buses, loading}}) => {
                         <table className="logTable">
                             <tbody>
                                 <tr className="tableHeading">
-                                    <th>DATE</th>
                                     <th>BUS #</th>
                                     <th>TYPE</th>
+                                    <th>DATE</th>
                                     <th>NO PART</th>
                                     <th>REASON DOWN</th>
                                     <th>STATUS</th>
+                                    <th>RTS DATE</th>
                                     <th>DAYS OUT</th>
                                     <th>UPDATE</th>
                                 </tr>

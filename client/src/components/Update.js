@@ -8,14 +8,15 @@ import '../log.css'
 
 const initialState = {
     _id: 0,
-    date : Date(),
+    date : moment().format('YYYY-M-D'),
     type: '',
     number: 0,
     noPart: false,
     description: '',
+    status: '',
+    rtsDate: moment().format('YYYY-M-D'),
     fixed: false,
-    dateFixed: Date(),
-    status: ''
+    dateFixed: moment().format('YYYY-M-D')
 }
 
 const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteBus, match}) => {
@@ -47,9 +48,10 @@ const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteB
         number,
         noPart,
         description,
+        status,
+        rtsDate,
         fixed,
-        dateFixed,
-        status
+        dateFixed
     } = formData
 
     const onChange = e => {
@@ -78,38 +80,38 @@ const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteB
                     <form className='updateForm' onSubmit={onSubmit}>
                     <h1 className='updateHeader'>Edit Bus Information</h1>
                     <div className='updateFormInput'>
-                        <label>Date: </label>&nbsp;
-                        <input type='date' name='date' value={moment(date).format('yyyy-MM-DD')} onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>Type: </label>&nbsp;
+                        <label>Date: </label>
+                        <input type='date' name='date' value={moment(date).format('yyyy-MM-DD')} onChange={onChange} required></input>
+                        <label>Type: </label>
                         <select type='text' name='type' value={type}  onChange={onChange} required>
                             <option></option>
                             <option>SMA</option>
                             <option>BRT</option>
                             <option>NON-REV</option>
                             <option>EXPRESS</option>
-                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>Number: </label>&nbsp;
-                        <input type='number' name='number' value={number} onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                        <label>No Part: </label>&nbsp;
+                        </select>
+                        <label>Number: </label>
+                        <input type='number' name='number' value={number} onChange={onChange} required></input>
+                        <label>No Part: </label>
                         <select type='text' name='noPart' value={noPart} onChange={onChange} required>
                             <option>true</option>
                             <option>false</option>
-                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>Description: </label>&nbsp;
-                        <input type='text' name='description' value={description} onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>Bus Fixed: </label>&nbsp;
+                        </select>
+                        <label>Reason Down: </label>
+                        <input type='text' name='description' value={description} onChange={onChange} required></input>
+                        <label>Bus Fixed: </label>
                         <select type='text' name='fixed' value={fixed} onChange={onChange} required>
                             <option>true</option>
                             <option>false</option>
-                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div style={{'margin-top':'2em'}}>
-                        <label>Status: </label>&nbsp;
-                        <input type='text' name='status' value={status} onChange={onChange} required></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>Date Fixed: </label>&nbsp;
-                        <input type='date' name='dateFixed' value={moment(dateFixed).format('yyyy-MM-DD')} onChange={onChange}></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </select>
+                        <label>Status: </label>
+                        <input type='text' name='status' value={status} onChange={onChange} required></input>
+                        <label>Date Fixed: </label>
+                        <input type='date' name='dateFixed' value={moment(dateFixed).format('yyyy-MM-DD')} onChange={onChange}></input>
+                        <label>RTS Date: </label>
+                        <input type='date' name='RTSdate' value={moment(rtsDate).format('yyyy-MM-DD')} onChange={onChange}></input>
                     </div>
-                    <div className='updateButtons'>
+                    <div>
                         <button type='submit'>Update</button>
                         <Link to='/'>
                             <button className='deleteButton' onClick={() => deleteBus(_id)}>Delete</button>
@@ -119,8 +121,7 @@ const Update = ({getBusById, bus: {bus, loading, submitted }, updateBus, deleteB
                 </div>
                 ) : (
                     <h1>Loading data</h1>
-                )
-            
+                )            
             )}
         </Fragment>
         )

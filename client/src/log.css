@@ -16,6 +16,11 @@ table {
     border-spacing: 0em;
 }
 
+.viewTable {
+    border-spacing: 0em;
+    font-size: 1.5em;
+}
+
 .busRepair {
     height: 2em;
     background-color: white;
@@ -38,20 +43,22 @@ tr.busRepair td {
 }
 
 form.addForm {
-    width: 48%;
-    height: 8.2em;
+    width: 50em;
+    height:70%;
     margin-top: 6em;
     margin-left: auto;
     margin-right: auto;
+    padding: 1.6em;
     text-align: center;
-    border: 0.2em solid #E1E1E1;
+    font-size: 0.8em;
+    border: 0.3em solid #E1E1E1;
     -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
 }
 
 form.filterForm {
-    width: 83%;
+    width: 70em;
     height: 2.5em;
     margin-top: 3em;
     margin-left: auto;
@@ -60,27 +67,35 @@ form.filterForm {
 }
 
 form.updateForm {
-    width: 45%;
-    height: 22em;
+    width: 46em;
+    height: 18em;
     margin-top: 3em;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     padding: 1em;
-    border: 0.2em solid #E1E1E1;
+    border: 0.3em solid #E1E1E1;
     -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.21);
 }
 
+input {
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+}
+
+select {
+    margin-right: 0.7em;
+    margin-bottom: 0.7em;
+}
+
 .updateHeader {
-    margin-bottom: 2em;
     color: #800000;
 }
 
 .updateFormInput {
     margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 button {
@@ -94,5 +109,4 @@ button {
 
 .goBack {
     margin: 1.5em;
-
 }

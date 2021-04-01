@@ -37,7 +37,6 @@ export const getBusById = busId => async dispatch => {
 export const addBus = formData => async dispatch => {
     try {
         await axios.post('http://localhost:3001/bus/add', formData)
-
     } catch (err) {
         dispatch({
             type: BUSES_ERROR,

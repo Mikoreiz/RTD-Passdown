@@ -16,6 +16,9 @@ const updateOptions = (req = {}) => {
     if (req.body.description) {
         fields['description'] = req.body.description
     }
+    if (req.body.status) {
+        fields['status'] = req.body.status
+    }
     if (req.body.fixed) {
         fields['fixed'] = req.body.fixed
     }

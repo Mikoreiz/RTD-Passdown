@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import BusView from './BusView'
 import { connect } from 'react-redux'
@@ -10,28 +10,34 @@ const View = ({getRepairLog, bus: {buses, loading}}) => {
 
     useEffect(() => {
         getRepairLog()
+
+        const interval = setInterval(() => {
+            getRepairLog()
+        }, 60000)
+
+        return() => clearInterval(interval)
     }, [getRepairLog])
 
         return (
             <Fragment>
-                <meta httpEquiv="refresh" content="600" />
                 { loading ? (
                     <h1> No buses in need of repair </h1>
                 ): (
                     <Fragment>
-                        <div style={{textAlign: "center"}}>
+                        <div style={{textAlign: "center", fontSize: "1.5em"}}>
                             <h1 style={{color: "#800000"}}>PASSDOWN</h1>
                             <h2>{moment().format('MMMM Do YYYY')}</h2>
                         </div>
-                        <table className="logTable">
+                        <table className="viewTable">
                             <tbody>
                                 <tr className="tableHeading">
-                                    <th>DATE</th>
                                     <th>BUS #</th>
                                     <th>TYPE</th>
+                                    <th>DATE</th>
                                     <th>NO PART</th>
                                     <th>REASON DOWN</th>
                                     <th>STATUS</th>
+                                    <th>RTS DATE</th>
                                     <th>DAYS OUT</th>
                                 </tr>
                                 {buses && !loading ? (buses.data.map(bus => (
@@ -60,3 +66,5 @@ export default connect(
     mapStateToProps,
     { getRepairLog }
 )(View)
+
+// export default View
